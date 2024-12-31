@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  body {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+  }
+
+  .mt-10 {
+    margin-top: 10px;
+  }
+
+  .mt-5 {
+    margin-top: 5px;
+  }
+
+  .mx-10 {
+    margin: 10px 10px 10px 10px;
+  }
+
+  .ml-10 {
+    margin-left: 10px;
+  }
+
+  .container {
+    color: white;
+    border-radius: 12px;
+    background: purple;
+    box-shadow: 0px 4px 16px rgba(254, 205, 211, 0.1),
+      0px 8px 24px rgba(254, 205, 211, 0.1),
+      0px 16px 56px rgba(254, 205, 211, 0.1);
+    padding-top: 10px;
+  }
+
+  .nav-link {
+    color: gray;
+    font-weight: 700;
+  }
+
+  .nav-link:hover {
+    color: purple !important;
+  }
+
+  .nav-item .active {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  .h-line {
+    height: 2px !important;
+  }
+
+  .btn {
+    background-color: purple;
+    color: white;
+  }
+
+  .mx-10 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .logo {
+    max-width: 200px;
+  }
+
+  .align-verticle {
+    vertical-align: middle;
+  }
+
+
+  select.minimal {
+    background-image:
+      linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position:
+      calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - 2.5em) 0.5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1px 1.5em;
+    background-repeat: no-repeat;
+  }
+
+  select.minimal:focus {
+    background-image:
+      linear-gradient(45deg, green 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, green 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position:
+      calc(100% - 15px) 1em,
+      calc(100% - 20px) 1em,
+      calc(100% - 2.5em) 0.5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1px 1.5em;
+    background-repeat: no-repeat;
+    outline: 0;
+  }
+</style>
+
+<body>
+  <div class="container-fluid">
+    <div class="row ml-10 mt-10">
+      <img class="logo"
+        src="https://moschip.com/wp-content/uploads/2021/07/MosChip-New-Logo-FINAL-3000X700-1536x358.png" alt="" />
+    </div>
+    <hr class="ml-10 h-line" />
+    <div class="row ml-10">
+      <ul class="nav nav-pills ml-10" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button"
+            role="tab" aria-controls="pills-home" aria-selected="true">
+            Memory
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+            type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+            Die Size Estimation
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+            type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+            Wafer Yield
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="package-yield-tab" data-bs-toggle="pill" data-bs-target="#pills-package-yield"
+            type="button" role="tab" aria-controls="pills-package-yield" aria-selected="false">
+            Package Yield
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="test-yield-tab" data-bs-toggle="pill" data-bs-target="#pills-test-yield"
+            type="button" role="tab" aria-controls="pills-test-yield" aria-selected="false">
+            Test Yield
+          </button>
+        </li>
+
+      </ul>
+      <!-- <hr class="h-line" />
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+          <div class="memory text">
+            <div>
+              <strong>Technology Inputs</strong>
+              <br /><br />
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">Gate Memory</label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="DD" value="" />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="μ mm" readonly />
+                  </div>
+                </div>
+                <br /><br />
+                <hr class="h-line" />
+                <div class="col-md-7">
+                  <div class="mb-">
+                    <label for="formFileMultiple" class="form-label">Number of Horizontal Layers
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="HH" />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <select name="" id="" class="form-control">
+                      <option value="">μ mm</option>
+                      <option value="">Sq mm</option>
+                    </select>
+                  </div>
+                </div>
+                <br /><br />
+                <hr class="h-line" />
+                <div class="col-md-7">
+                  <div class="mb-1">
+                    <label for="formFileDisabled" class="form-label">Number of Vertical Layers
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="VV" />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" disabled />
+                  </div>
+                </div>
+                <br /><br />
+                <hr class="h-line" />
+              </div>
+
+              <strong>Design Inputs</strong>
+              <br />
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">Gate count (excluding memories, macros & subchips)
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="GG" />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" disabled />
+                  </div>
+                </div>
+                <br /><br />
+                <hr class="h-line" />
+                <div class="col-md-7">
+                  <div class="mb-1">
+                    <label for="formFileMultiple" class="form-label">IO area
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="II" />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="μ mm" readonly />
+                  </div>
+                </div>
+                <br /><br />
+                <hr class="h-line" />
+                <div class="col-md-7">
+                  <div class="mb-1">
+                    <label for="formFileDisabled" class="form-label">Macros + Subchips area
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="MM" />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="μ mm" readonly />
+                  </div>
+                </div>
+                <br /><br />
+                <hr class="h-line" />
+                <div class="col-md-7">
+                  <div class="mb-1">
+                    <label for="formFileDisabled" class="form-label">Additional gate count for CTS, timing closure etc
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="TT" />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="%" readonly />
+                  </div>
+                </div>
+                <br /><br />
+                <hr class="h-line" />
+                <div class="col-md-7">
+                  <div class="mb-1">
+                    <label for="formFileDisabled" class="form-label">Additional gate count for ECOs
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="EE" />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="%" readonly />
+                  </div>
+                </div>
+                <br /><br />
+                <hr class="h-line" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-7">
+                <div class="mb-1">
+                  <button class="btn" onclick="calculateMemory()">
+                    Calculate
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="mb-1">
+                  <input class="form-control" type="text" id="memoryResult" readonly />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <div class="memory text">
+            <div>
+              <div class="row">
+                <div class="col-md-8">
+                  <strong>Gate Area</strong>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="" id="gate_area" readonly />
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="μ mm" disabled />
+                  </div>
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">Technology</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <select class="form-control minimal" name="" id="gate_tech" onchange="gateArea()">
+                      <option selected disabled>Select Technology</option>
+                      <option value="1.44">N180</option>
+                      <option value="0.48">N90</option>
+                      <option value="0.25">N65</option>
+                      <option value="0.16">N55</option>
+                      <option value="0.08">N40</option>
+                      <option value="0.035">N28</option>
+                      <option value="0.02">N22</option>
+                      <option value="0.01">N16</option>
+                      <option value="0.006">N12</option>
+                      <option value="0.004">N10</option>
+                      <option value="0.0025">N7</option>
+                      <option value="0.001">N5</option>
+                      <option value="0.0005">N4</option>
+                      <option value="0.0002">N3</option>
+                    </select>
+
+                  </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                  <!-- <div class="mb-1">
+                      <input
+                        class="form-control"
+                        type="text"
+                        value="sqmm"
+                        readonly
+                      />
+                    </div> -->
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label text-left">Gate Count</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="gate_count" value="" onchange="gateArea()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="gcUnit" onchange="gateArea()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">Overhead Gates</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="gate_overhead" value="" onchange="gateArea()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="goUnit" onchange="gateArea()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+
+              </div>
+              <hr class="h-line">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="mb-1">
+                    <label for="formFileDisabled" class="form-label"><strong>Memory</strong>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="die_memory" disabled />
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="μ mm" disabled />
+                  </div>
+                </div>
+              </div>
+              <hr class="h-line">
+              <div class="row">
+                <div class="col-md-8">
+                  <strong>Soft IP</strong>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="" id="soft_ip" readonly />
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="μ mm" disabled />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label text-left">Soft IP gate Count</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="sip_gate_count" value="" onchange="softIP()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="sipgcUnit" onchange="softIP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">Effective number of gates</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="sip_effective_gate" value="" onchange="softIP()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="sipegUnit" onchange="softIP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">Effective total placed gate area</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="sip_total_gate_area" value="" onchange="softIP()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="siptgaUnit" onchange="softIP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">Total gate + IP area + Memory</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="sip_total_gipm" value="" onchange="softIP()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="siptgUnit" onchange="softIP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">Floorplanning Overhead</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="sip_floor_overhead" value="" onchange="softIP()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="sipfoUnit" onchange="softIP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">core Area</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="sip_core_area" value="" onchange="softIP()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="sipcaUnit" onchange="softIP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">Size on a side</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="sip_size_on_side" value="" onchange="softIP()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="sipsosUnit" onchange="softIP()">
+                        <option value="1" selected disabled>select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">Side with Power Rings</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="sip_side_power_ring" value="" onchange="softIP()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="sipsprUnit" onchange="softIP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+
+              </div>
+              <hr class="h-line">
+              <div class="row">
+                <div class="col-md-8">
+                  <strong>Hard IP</strong>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="" id="hard_ip" readonly />
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="μ mm" disabled />
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label text-left">Non-Analog Hard I/P Area</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="hip_non_anolog_area" value="" onchange="hardIP()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="hipnaaUnit" onchange="hardIP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">Analog Hard I/P Area</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="hip_anolog_area" value="" onchange="hardIP()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="hipaaUnit" onchange="hardIP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+              </div>
+              <hr class="h-line">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="mb-1">
+                    <label for="formFileDisabled" class="form-label"><strong>Analog IP plus non-BISR RAM Area</strong>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="anolog_ram_area" />
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="μ mm" disabled />
+                  </div>
+                </div>
+              </div>
+              <hr class="h-line">
+              <div class="row">
+                <div class="col-md-8">
+                  <strong>IOs</strong>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="" id="ios" readonly />
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="μ mm" disabled />
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label text-left">Functional Pins</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="ios_fpins" value="" onchange="FPins()" />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <!-- <div class="mb-1">
+                      <select class="form-control" name="" id="iosfpUnit" onchange="FPins()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div> -->
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <label for="formFile" class="form-label">Power Pins</label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="ios_ppins" value=""  />
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <!-- <div class="mb-1">
+                      <select class="form-control" name="" id="iosppUnit" onchange="FPins()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div> -->
+                </div>
+              </div>
+              <hr class="h-line">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="mb-1">
+                    <label for="formFileDisabled" class="form-label"><strong>Pins on a side</strong>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="pin_side" />
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="μ mm" disabled />
+                  </div>
+                </div>
+              </div>
+              <hr class="h-line">
+              <div class="row">
+                <div class="col-md-8">
+                  <strong>Linear Pad placement
+                  </strong>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="" id="linear_pad" readonly />
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="μ mm" disabled />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-md-3"></div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <label for="formFile" class="form-label text-left">Side based on core+ linear pads</label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <input class="form-control" type="number" id="lpp_core_pad" value="" onchange="LPP()" />
+                </div>
+              </div>
+              <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="lppcpUnit" onchange="LPP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+              <div class="col-md-3"></div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <label for="formFile" class="form-label">Side based of periphery of linear pads</label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <input class="form-control" type="number" id="lpp_linear_pad" value="" onchange="LPP()" />
+                </div>
+              </div>
+              <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="lpplpUnit" onchange="LPP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+              <div class="col-md-3"></div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <label for="formFile" class="form-label">Final side based on linear pads</label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <input class="form-control" type="number" id="lpp_final_side" value="" onchange="LPP()" />
+                </div>
+              </div>
+              <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="lppfsUnit" onchange="LPP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+            </div>
+            <hr class="h-line">
+            <div class="row">
+              <div class="col-md-8">
+                <strong>Staggered pad placement
+                </strong>
+              </div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <input class="form-control" type="text" value="" id="spl" readonly />
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="mb-1">
+                  <input class="form-control" type="text" value="μ mm" disabled />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-md-3"></div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <label for="formFile" class="form-label text-left">side based on core+ stagged pads</label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <input class="form-control" type="number" id="spl_core_pad" value="" onchange="SPP()" />
+                </div>
+              </div>
+              <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="splcpUnit" onchange="SPP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+              <div class="col-md-3"></div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <label for="formFile" class="form-label">Side based on periphery for staggered pads</label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <input class="form-control" type="number" id="spl_periphery_pad" value="" onchange="SPP()" />
+                </div>
+              </div>
+              <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="splppUnit" onchange="SPP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+              <div class="col-md-3"></div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <label for="formFile" class="form-label">Final side based on staggered pads</label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="mb-1">
+                  <input class="form-control" type="number" id="spl_final_pad" value="" onchange="SPP()" />
+                </div>
+              </div>
+              <div class="col-md-3"></div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                      <select class="form-control" name="" id="splfpUnit" onchange="SPP()">
+                        <option value="1" selected disabled>Select</option>
+                        <option value="1000000">sqmm</option>
+                        <option value="1">μ mm</option>
+                      </select>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <hr class="h-line">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="mb-1">
+                    <label for="formFileDisabled" class="form-label"><strong>Target Utilization</strong>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="target_utilization" />
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="μ mm" disabled />
+                  </div>
+                </div>
+              </div>
+            <hr class="h-line">
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="mb-1">
+                <button class="btn" onclick="TotalDieSum()">Calculate</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="mb-1">
+                <input class="form-control" type="text" id="dieSizeEstimation" readonly />
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="mb-1">
+                <input class="form-control" type="text" value="μ mm" disabled />
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <table class="table table-bordered text-left">
+          <tr>
+            <td colspan="2">Wafer 1</td>
+            <td rowspan="3" class="align-verticle" id="">
+              <input class="form-control" type="text" id="wafer1Result" value="0" disabled />
+            </td>
+          </tr>
+          <tr>
+            <td>Diameter</td>
+            <td>
+              <input class="form-control" type="number" id="diameter1" value="0" onchange="getWafer1()" />
+            </td>
+          </tr>
+          <tr>
+            <td>No of Dies</td>
+            <td>
+              <input class="form-control" type="number" id="noofdies1" value="0" onchange="getWafer1()" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">Wafer 2</td>
+            <td rowspan="3" class="align-verticle" id="">
+              <input class="form-control" type="text" id="wafer2Result" value="0" disabled />
+            </td>
+          </tr>
+          <tr>
+            <td>Diameter</td>
+            <td>
+              <input class="form-control" type="number" id="diameter2" value="0" onchange="getWafer2()" />
+            </td>
+          </tr>
+          <tr>
+            <td>No of Dies</td>
+            <td>
+              <input class="form-control" type="number" id="noofdies2" value="0" onchange="getWafer2()" />
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              <button class="btn btn-light text-purple" onclick="WaferSum()">
+                Calculate
+              </button>
+            </td>
+            <td colspan="2" id="waferSum"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="tab-pane fade" id="pills-package-yield" role="tabpanel" aria-labelledby="pills-package-yield">
+        xx
+      </div>
+      <div class="tab-pane fade" id="pills-test-yield" role="tabpanel" aria-labelledby="pills-test-yield">
+        ww
+      </div>
+    </div>
+
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+  function calculate() {
+    var D = parseFloat(document.getElementById("D").value);
+    var H = parseFloat(document.getElementById("H").value);
+    var V = parseFloat(document.getElementById("V").value);
+    var G = parseFloat(document.getElementById("G").value);
+    var I = parseFloat(document.getElementById("I").value);
+    var M = parseFloat(document.getElementById("M").value);
+    var U = parseFloat(document.getElementById("U").value);
+    var T = parseFloat(document.getElementById("T").value);
+    var E = parseFloat(document.getElementById("E").value);
+
+    // Check if any of the values is NaN (Not a Number)
+    if (
+      isNaN(D) ||
+      isNaN(H) ||
+      isNaN(V) ||
+      isNaN(G) ||
+      isNaN(I) ||
+      isNaN(M) ||
+      isNaN(U) ||
+      isNaN(T) ||
+      isNaN(E)
+    ) {
+      console.log("Please enter valid numerical values in all fields.");
+      return;
+    }
+
+    const result = ((G + T + E) / D + I + M) / U;
+    // const result =  ([(G + T + E) / D] + I + M) / U;
+
+    document.getElementById("result").value = " " + result;
+    document.getElementById("result").style.display = "block";
+  }
+
+  function calculateMemory() {
+    var DD = parseFloat(document.getElementById("DD").value);
+    var HH = parseFloat(document.getElementById("HH").value);
+    var VV = parseFloat(document.getElementById("VV").value);
+    var GG = parseFloat(document.getElementById("GG").value);
+    var II = parseFloat(document.getElementById("II").value);
+    var MM = parseFloat(document.getElementById("MM").value);
+    var TT = parseFloat(document.getElementById("TT").value);
+    var EE = parseFloat(document.getElementById("EE").value);
+
+    // Check if any of the values is NaN (Not a Number)
+    if (
+      isNaN(DD) ||
+      isNaN(HH) ||
+      isNaN(VV) ||
+      isNaN(GG) ||
+      isNaN(II) ||
+      isNaN(MM) ||
+      isNaN(TT) ||
+      isNaN(EE)
+    ) {
+      console.log("Please enter valid numerical values in all fields.");
+      return;
+    }
+
+    const result = ((GG + TT + EE) / DD + II + MM);
+    // const result =  ([(G + T + E) / D] + I + M) / U;
+
+    document.getElementById("die_memory").value = result;
+    document.getElementById("memoryResult").value = " " + result;
+    document.getElementById("memoryResult").style.display = "block";
+  }
+
+  function gateDensitySum() {
+    var G1 = parseFloat(document.getElementById("G1").value);
+    var G2 = parseFloat(document.getElementById("G2").value);
+
+    const result = G1 + G2;
+    document.getElementById("gateDensityResult").value = result;
+  }
+
+  function gateIOArea() {
+    var FPin = parseFloat(document.getElementById("FPin").value);
+    var PPin = parseFloat(document.getElementById("PPin").value);
+
+    const result = FPin + PPin;
+    document.getElementById("IOArea").value = result;
+  }
+
+  function gateLinearPad() {
+    var LA = parseFloat(document.getElementById("LA").value);
+    var LB = parseFloat(document.getElementById("LB").value);
+    var LC = parseFloat(document.getElementById("LC").value);
+
+    const result = LA + LB + LC;
+    document.getElementById("LinearPP").value = result;
+  }
+
+  function gateDieSize() {
+    var DA = parseFloat(document.getElementById("DieA").value);
+    var DB = parseFloat(document.getElementById("DieB").value);
+    var DC = parseFloat(document.getElementById("DieC").value);
+    var DD = parseFloat(document.getElementById("DieD").value);
+    var DE = parseFloat(document.getElementById("DieE").value);
+
+    const result = DA + DB + DC + DD + DE;
+    document.getElementById("DieSize").value = result;
+  }
+
+
+
+  function getWafer1() {
+    var d = parseFloat(document.getElementById("diameter1").value);
+    var dpw = parseFloat(document.getElementById("noofdies1").value);
+    const radius = d / 2;
+
+    const area = 3.14 * radius * radius;
+
+    const A1 = area / dpw;
+    const area_of_one_die = parseFloat(A1.toFixed(2));
+    const defectperarea = area_of_one_die / 100;
+    const dpa = parseFloat(defectperarea.toFixed(2));
+
+    // const Yield = 1/(1+dpa*area_of_one_die/2)*(1+dpa*area_of_one_die/2);
+    const exp = 1 + (dpa * area_of_one_die) / 2;
+    // const Yield = 1 / Math.pow(exp, 2);
+    const Yield = 1 / exp;
+    const actualYield = parseFloat(Yield.toFixed(4));
+
+    document.getElementById("wafer1Result").value = actualYield;
+    // console.log(actualYield);
+  }
+
+  function getWafer2() {
+    var d = parseFloat(document.getElementById("diameter2").value);
+    var dpw = parseFloat(document.getElementById("noofdies2").value);
+    const radius = d / 2;
+
+    const area = 3.14 * radius * radius;
+
+    const A1 = area / dpw;
+    const area_of_one_die = parseFloat(A1.toFixed(2));
+    const defectperarea = area_of_one_die / 100;
+    const dpa = parseFloat(defectperarea.toFixed(2));
+
+    // const Yield = 1/(1+dpa*area_of_one_die/2)*(1+dpa*area_of_one_die/2);
+    const exp = 1 + (dpa * area_of_one_die) / 2;
+    // const Yield = 1 / Math.pow(exp, 2);
+    const Yield = 1 / exp;
+    const actualYield = parseFloat(Yield.toFixed(4));
+
+    document.getElementById("wafer2Result").value = actualYield;
+    // console.log(actualYield);
+  }
+
+  function WaferSum() {
+    var w1 = parseFloat(document.getElementById("wafer1Result").value);
+    var w2 = parseFloat(document.getElementById("wafer2Result").value);
+
+    const total = w1 + w2;
+    const totalSum = parseFloat(total.toFixed(5));
+    document.getElementById("waferSum").innerHTML = totalSum;
+  }
+
+  function gateArea() {
+    var g1 = parseFloat(document.getElementById("gate_count").value);
+    var g2 = parseFloat(document.getElementById("gate_overhead").value);
+    var g3 = parseFloat(document.getElementById("gate_tech").value);
+
+    var u1 = parseFloat(document.getElementById("gcUnit").value);
+    var u2 = parseFloat(document.getElementById("goUnit").value);
+
+    // console.log(u1);
+    // console.log(u2);
+    var g11 = g1*u1;
+    var g22 = g2*u2;
+    const f1 = g11 / 4;
+    const f2 = f1 + g22;
+    const gateArea = f2 * g3;
+    document.getElementById("gate_area").value = gateArea;
+  }
+
+
+
+
+  function softIP() {
+    var A1 = parseFloat(document.getElementById("sip_gate_count").value);
+    var A2 = parseFloat(document.getElementById("sip_effective_gate").value);
+    var A3 = parseFloat(document.getElementById("sip_total_gate_area").value);
+    var A4 = parseFloat(document.getElementById("sip_total_gipm").value);
+    var A5 = parseFloat(document.getElementById("sip_floor_overhead").value);
+    var A6 = parseFloat(document.getElementById("sip_core_area").value);
+    var A7 = parseFloat(document.getElementById("sip_size_on_side").value);
+    var A8 = parseFloat(document.getElementById("sip_side_power_ring").value);
+
+    var u1 = parseFloat(document.getElementById("sipgcUnit").value);
+    var u2 = parseFloat(document.getElementById("sipegUnit").value);
+    var u3 = parseFloat(document.getElementById("siptgaUnit").value);
+    var u4 = parseFloat(document.getElementById("siptgUnit").value);
+    var u5 = parseFloat(document.getElementById("sipfoUnit").value);
+    var u6 = parseFloat(document.getElementById("sipcaUnit").value);
+    var u7 = parseFloat(document.getElementById("sipsosUnit").value);
+    var u8 = parseFloat(document.getElementById("sipsprUnit").value);
+
+    const result = A1*u1 + A2*u2 + A3*u3 + A4*u4 + A5*u5 + A6*u6 + A7*u7 + A8*u8;
+    document.getElementById("soft_ip").value = result;
+  }
+  function hardIP() {
+    var A1 = parseFloat(document.getElementById("hip_non_anolog_area").value);
+    var A2 = parseFloat(document.getElementById("hip_anolog_area").value);
+
+    var u1 = parseFloat(document.getElementById("hipnaaUnit").value);
+    var u2 = parseFloat(document.getElementById("hipaaUnit").value);
+
+    const result = A1*u1 + A2*u2;
+    document.getElementById("hard_ip").value = result;
+  }
+  function FPins() {
+    var A1 = parseFloat(document.getElementById("ios_fpins").value);
+    var A2 = A1 / 4;
+    
+    document.getElementById("ios_ppins").value = A2;
+
+    const result = (A1 + A2) * 110 * 40;
+
+    document.getElementById("ios").value = result;
+  }
+  function LPP() {
+    var A1 = parseFloat(document.getElementById("lpp_core_pad").value);
+    var A2 = parseFloat(document.getElementById("lpp_linear_pad").value);
+    var A3 = parseFloat(document.getElementById("lpp_final_side").value);
+
+    var u1 = parseFloat(document.getElementById("lppcpUnit").value);
+    var u2 = parseFloat(document.getElementById("lpplpUnit").value);
+    var u3 = parseFloat(document.getElementById("lppfsUnit").value);
+
+
+    const result = A1*u1 + A2*u2 + A3*u3;
+    document.getElementById("linear_pad").value = result;
+  }
+  function SPP() {
+    var A1 = parseFloat(document.getElementById("spl_core_pad").value);
+    var A2 = parseFloat(document.getElementById("spl_periphery_pad").value);
+    var A3 = parseFloat(document.getElementById("spl_final_pad").value);
+
+    var u1 = parseFloat(document.getElementById("splcpUnit").value);
+    var u2 = parseFloat(document.getElementById("splppUnit").value);
+    var u3 = parseFloat(document.getElementById("splfpUnit").value);
+
+
+    const result = A1*u1 + A2*u2 + A3*u3;
+    document.getElementById("spl").value = result;
+  }
+
+
+  function TotalDieSum() {
+    var A1 = parseFloat(document.getElementById("gate_area").value);
+    var A2 = parseFloat(document.getElementById("die_memory").value);
+    var A3 = parseFloat(document.getElementById("soft_ip").value);
+    var A4 = parseFloat(document.getElementById("hard_ip").value);
+    var A5 = parseFloat(document.getElementById("anolog_ram_area").value);
+    var A6 = parseFloat(document.getElementById("ios").value);
+    var A7 = parseFloat(document.getElementById("pin_side").value);
+    var A8 = parseFloat(document.getElementById("linear_pad").value);
+    var A9 = parseFloat(document.getElementById("spl").value);
+    var A10 = parseFloat(document.getElementById("target_utilization").value);
+    
+
+    const result = A1 + A2 + A3 + A4 + A5 + A6 + A7 + A8 + A9 + A10;
+    document.getElementById("dieSizeEstimation").value = result;
+  }
+
+  function GateCount(v) {
+    alert(v);
+  }
+</script>

@@ -1,0 +1,2835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+
+
+    .mt-10 {
+        margin-top: 10px;
+    }
+
+    .mt-5 {
+        margin-top: 5px;
+    }
+
+    .mx-10 {
+        margin: 10px 10px 10px 10px;
+    }
+
+    .ml-10 {
+        margin-left: 10px;
+    }
+
+    /* .container {
+    color: white;
+    border-radius: 12px;
+    background: purple;
+    box-shadow: 0px 4px 16px rgba(254, 205, 211, 0.1),
+      0px 8px 24px rgba(254, 205, 211, 0.1),
+      0px 16px 56px rgba(254, 205, 211, 0.1);
+    padding-top: 10px;
+  } */
+
+    .nav-link {
+        color: purple;
+        font-weight: 700;
+    }
+
+    .nav-link:hover {
+        color: purple !important;
+    }
+
+    .nav-item .active {
+        background-color: white !important;
+        color: black !important;
+    }
+
+    .h-line {
+        height: 2px !important;
+    }
+
+    .btn {
+        background-color: purple;
+        color: white;
+    }
+
+    .mx-10 {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .logo {
+        max-width: 200px;
+        margin-right: 100px;
+    }
+
+    .align-verticle {
+        vertical-align: middle;
+    }
+
+
+    select.minimal {
+        background-image:
+            linear-gradient(45deg, transparent 50%, gray 50%),
+            linear-gradient(135deg, gray 50%, transparent 50%),
+            linear-gradient(to right, #ccc, #ccc);
+        background-position:
+            calc(100% - 20px) calc(1em + 2px),
+            calc(100% - 15px) calc(1em + 2px),
+            calc(100% - 2.5em) 0.5em;
+        background-size:
+            5px 5px,
+            5px 5px,
+            1px 1.5em;
+        background-repeat: no-repeat;
+    }
+
+    select.minimal:focus {
+        background-image:
+            linear-gradient(45deg, green 50%, transparent 50%),
+            linear-gradient(135deg, transparent 50%, green 50%),
+            linear-gradient(to right, #ccc, #ccc);
+        background-position:
+            calc(100% - 15px) 1em,
+            calc(100% - 20px) 1em,
+            calc(100% - 2.5em) 0.5em;
+        background-size:
+            5px 5px,
+            5px 5px,
+            1px 1.5em;
+        background-repeat: no-repeat;
+        outline: 0;
+    }
+
+    select.minimal2 {
+        background-image:
+            linear-gradient(45deg, transparent 50%, gray 50%),
+            linear-gradient(135deg, gray 50%, transparent 50%),
+            linear-gradient(to right, #ccc, #ccc);
+        background-position:
+            calc(100% - 20px) calc(1em + 2px),
+            calc(100% - 15px) calc(1em + 2px),
+            calc(100% - 2.5em) 0.5em;
+        background-size:
+            5px 5px,
+            5px 5px,
+            1px 1.5em;
+        background-repeat: no-repeat;
+    }
+
+    select.minimal2:focus {
+        background-image:
+            linear-gradient(45deg, green 50%, transparent 50%),
+            linear-gradient(135deg, transparent 50%, green 50%),
+            linear-gradient(to right, #ccc, #ccc);
+        background-position:
+            calc(100% - 15px) 1em,
+            calc(100% - 20px) 1em,
+            calc(100% - 2.5em) 0.5em;
+        background-size:
+            5px 5px,
+            5px 5px,
+            1px 1.5em;
+        background-repeat: no-repeat;
+        outline: 0;
+    }
+
+    .minimal2 {
+        min-width: 100px !important;
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 95%;
+        background-color: black;
+        color: white !important;
+        height: 60px;
+        margin-top: 0 !important;
+        padding-top: 5px !important;
+    }
+
+    .mr-10 {
+        margin-right: 10px;
+    }
+
+    .form-label {
+        text-align: right;
+        padding-top: 5px;
+        margin-left: -13px;
+    }
+
+    .px-10 {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .collapse {
+        justify-content: end;
+    }
+
+    .bg-mycolor {
+        background-color: #eaeaea;
+    }
+
+    .mx-20 {
+        margin-left: 70px;
+        margin-right: 70px;
+    }
+</style>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg bg-mycolor px-10">
+        <a class="navbar-brand" href="#"><img class="logo"
+                src="https://moschip.com/wp-content/uploads/2021/07/MosChip-New-Logo-FINAL-3000X700-1536x358.png"
+                alt="" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class=" nav nav-pills" id="pills-tab" role="tablist">
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                        aria-selected="true">
+                        Memory
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link " id="pills-profile-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                        aria-selected="false">
+                        Die Size Estimation
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link " id="yield-tab" data-bs-toggle="pill" data-bs-target="#pills-yield"
+                        type="button" role="tab" aria-controls="pills-yield" aria-selected="false">
+                        Wafer Yield
+                    </button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="package-yield-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-package-yield" type="button" role="tab"
+                        aria-controls="pills-package-yield" aria-selected="false">
+                        Package Yield
+                    </button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="test-yield-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-test-yield" type="button" role="tab" aria-controls="pills-test-yield"
+                        aria-selected="false">
+                        Test Yield
+                    </button>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+    <div class="mx-20">
+        <br>
+        <div class="row ml-10 mt-10">
+
+            <div class="tab-content" id="pills-tabContent">
+
+                <!-- memory -->
+                <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="memory text">
+                        <div>
+                            <strong>Technology Inputs</strong>
+                            <br /><br />
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">Gate Memory</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="DD" value="" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="(μm)²" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-">
+                                        <label for="formFileMultiple" class="form-label">Number of Horizontal Layers
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="HH" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <select name="" id="" class="form-control">
+                                            <option value="">(μm)²</option>
+                                            <option value="">(mm)²</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">Number of Vertical Layers
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="VV" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" disabled />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                            </div>
+
+                            <strong>Design Inputs</strong>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">Gate count (excluding memories, macros
+                                            & subchips)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="GG" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" disabled />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileMultiple" class="form-label">IO area
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="II" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="(μm)²" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">Macros + Subchips area
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="MM" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="(μm)²" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">Additional gate count for CTS,
+                                            timing closure etc
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="TT" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="%" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">Additional gate count for ECOs
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="EE" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="%" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="mb-1">
+                                    <button class="btn" onclick="calculateMemory()">
+                                        Calculate
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="mb-1">
+                                    <input class="form-control" type="text" id="memoryResult" readonly />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- die size estimation -->
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="memory text">
+                        <div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <strong>1. Placeable Area (Primary/Main Design)</strong>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="0" id="gate_area"
+                                            onchange="calculateArea()" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="(μm)²" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">1a. Technology</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <select class="form-control minimal" name="" id="gate_tech"
+                                            onchange="gateArea()">
+
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2">
+                                    <!-- <div class="mb-1">
+                      <input
+                        class="form-control"
+                        type="text"
+                        value="(mm)²"
+                        readonly
+                      />
+                    </div> -->
+                                </div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <br>
+                                        <label for="formFile" class="form-label text-left">1b. Estimated Gate</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="">Count</label>
+                                        <input class="form-control" type="number" id="gate_count" value="0"
+                                            onchange="gateArea()" />
+                                    </div>
+                                </div>
+                                <br>
+                                Or
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="">Area</label>
+                                        <input class="form-control" type="number" id="gate_count_area" value="0"
+                                            onchange="gateArea()" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-1">
+                                    <div class="mb-1">
+                                        <label for="">.</label>
+                                        <select class="form-control minimal2" name="" id="gcUnit" onchange="gateArea()">
+                                            <option value="1">(μm)²</option>
+                                            <option value="1000000">(mm)²</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">1c. Overhead Gate</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="gate_overhead" value="0"
+                                            onchange="gateArea()" />
+                                    </div>
+                                </div>
+                                Or
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="gate_overhead_area" value="0"
+                                            onchange="gateArea()" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-1">
+                                    <div class="mb-1">
+                                        <select class="form-control minimal2" name="" id="goUnit" onchange="gateArea()">
+                                            <option value="1">(μm)²</option>
+                                            <option value="1000000">(mm)²</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">1d. Target Utilization(%) <span
+                                                style="color:red;"> *.</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="target_u" value="0"
+                                            onchange="gateArea()" required />
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" id="tuUnit" value="%" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label"><span
+                                                style="color:red;">Required</span> </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                </div>
+                            </div>
+                            <!-- <hr class="h-line"> -->
+                            <br>
+                            <center>
+                                <span>OR</span>
+                            </center>
+                            <br>
+                            <!-- <hr class="h-line"> -->
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label"><strong>Logic Area for Placeble
+                                                Area</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" value="0" id="area_for_placeblearea"
+                                            onchange="getLogicArea()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="(μm)²" disabled />
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="h-line">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label"><strong>2. Memory Area
+                                                (Primary/Main Design)</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" value="0" id="die_memory"
+                                            onchange="calculateArea()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="(μm)²" disabled />
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="h-line">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <strong>3. Soft (Third Party) IP Area</strong>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="0" id="soft_area" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="(μm)²" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">3a. Technology</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <select class="form-control minimal" name="" id="so_gate_tech"
+                                            onchange="softArea()" disabled>
+
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2">
+                                    <!-- <div class="mb-1">
+                      <input
+                        class="form-control"
+                        type="text"
+                        value="(mm)²"
+                        readonly
+                      />
+                    </div> -->
+                                </div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <br>
+                                        <label for="formFile" class="form-label text-left">3b.Estimated Gate</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="">Count</label>
+                                        <input class="form-control" type="number" id="so_gate_count" value="0"
+                                            onchange="softArea()" />
+                                    </div>
+                                </div>
+                                <br>
+                                Or
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="">Area</label>
+                                        <input class="form-control" type="number" id="so_gate_count_area" value="0"
+                                            onchange="softArea()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="mb-1">
+                                        <label for="">.</label>
+                                        <select class="form-control minimal2" name="" id="so_gcUnit"
+                                            onchange="softArea()">
+                                            <option value="1" selected disabled>(μm)²</option>
+                                            <option value="1000000">(mm)²</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">3c. Overhead Gate</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="so_gate_overhead" value="0"
+                                            onchange="softArea()" />
+                                    </div>
+                                </div>
+                                Or
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="so_gate_overhead_area" value="0"
+                                            onchange="softArea()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="mb-1">
+                                        <select class="form-control minimal2" name="" id="so_goUnit"
+                                            onchange="softArea()">
+                                            <option value="1" selected disabled>(μm)²</option>
+                                            <option value="1000000">(mm)²</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">3d. Target Utilization(%) <span
+                                                style="color:red;">*</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="so_target_u" value="0"
+                                            onchange="softArea()" />
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="mb-1">
+
+                                        <input class="form-control" type="text" id="so_tuUnit" value="%" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label"><span
+                                                style="color:red;">Required</span> </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                            </div>
+                            <br>
+                            <center>
+                                <span>OR</span>
+                            </center>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label"><strong>Logic Area for Soft IP
+                                                Area</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" value="0" id="area_for_softip"
+                                            onchange="getsoftIPLogicArea()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="(μm)²" disabled />
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <hr class="h-line">
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label"><strong>4. Hard IP Area
+                                                (Including Third
+                                                party)</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="anolog_ram_area" value="0"
+                                            onchange="calculateArea()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="(μm)²" disabled />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="h-line">
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <strong>5. IO Area</strong>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="0" id="ios" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="(μm)²" disabled />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label text-left">5a. Technology</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <select class="form-control minimal" name="" id="io_gate_tech" disabled>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-1">
+                                </div>
+
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label text-left">5b. Functional Pins</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="ios_fpins" value="0"
+                                            onchange="FPins()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-1">
+                                </div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">5c. Power Pins</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="ios_ppins" value="0" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-1">
+                                    <!-- <div class="mb-1">
+                      <select class="form-control" name="" id="iosppUnit" onchange="FPins()">
+                        <option value="1" selected disabled>(μm)²</option>
+                        <option value="1000000">(mm)²</option>
+                        
+                      </select>
+                    </div> -->
+                                </div>
+                            </div>
+
+                            <hr class="h-line">
+                            <!-- 
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="mb-1">
+                    <label for="formFileDisabled" class="form-label"><strong>Floor plan overhead(%)</strong>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                  </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="floor_planArea" value="0" onchange="floorPlanArea()" />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="%" disabled /> 
+                  </div>
+                </div>
+              </div>
+
+              <hr class="h-line"> -->
+
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label"><strong>6. Floor plan overhead
+                                                Area</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <!-- <input class="form-control" type="number" id="floor_plan" onchange="floorPlan()" /> -->
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" value="0" id="floorPlanArea"
+                                            readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <!-- <input class="form-control" type="text" value="" disabled /> -->
+                                        <input class="form-control" type="text" value="(μm)²" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label text-left">6a. Floor plan
+                                            overhead(%)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="floor_planArea" value="0"
+                                            onchange="floorPlanArea()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" id="tuUnit" value="%" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                                <div class="col-md-1">
+                                </div>
+                            </div>
+                            <!-- <hr class="h-line">
+
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="mb-1">
+                    <label for="formFileDisabled" class="form-label"><strong> Aspect Ratio</strong>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="number" id="aspectRatio" readonly/>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-1">
+                    <input class="form-control" type="text" value="(μm)²" disabled />
+                  </div>
+                </div>
+              </div> -->
+                            <hr class="h-line">
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label"><strong>7. Complete Die
+                                                Area</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" value="0" id="ar_area" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="(μm)²" disabled />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="h-line">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label"><strong>8. Aspect
+                                                Ratio(W/H)</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="ar_x" value="0"
+                                            onchange="calculateHeightWidth()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <!-- <input class="form-control" type="text" value="" disabled /> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="h-line">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label"><strong>9. Width</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="ar_width" value="0" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" disabled />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="h-line">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label"><strong>10. Height</strong>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="ar_height" value="0" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" disabled />
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <hr class="h-line">
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <!-- <button class="btn" onclick="TotalDieSum()">Calculate the Total Die Area</button> -->
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <!-- <input class="form-control" type="text" id="dieSizeEstimation" readonly /> -->
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <!-- <input class="form-control" type="text" value="(μm)²" disabled /> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- wafer field -->
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <table class="table table-bordered text-left">
+                        <tr>
+                            <td colspan="2">Wafer 1</td>
+                            <td rowspan="3" class="align-verticle" id="">
+                                <input class="form-control" type="text" id="wafer1Result" value="0" disabled />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Diameter</td>
+                            <td>
+                                <input class="form-control" type="number" id="diameter1" value="0"
+                                    onchange="getWafer1()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>No of Dies</td>
+                            <td>
+                                <input class="form-control" type="number" id="noofdies1" value="0"
+                                    onchange="getWafer1()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Wafer 2</td>
+                            <td rowspan="3" class="align-verticle" id="">
+                                <input class="form-control" type="text" id="wafer2Result" value="0" disabled />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Diameter</td>
+                            <td>
+                                <input class="form-control" type="number" id="diameter2" value="0"
+                                    onchange="getWafer2()" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>No of Dies</td>
+                            <td>
+                                <input class="form-control" type="number" id="noofdies2" value="0"
+                                    onchange="getWafer2()" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <button class="btn btn-light text-purple" onclick="WaferSum()">
+                                    Calculate
+                                </button>
+                            </td>
+                            <td colspan="2" id="waferSum"></td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <!-- package yield start -->
+                <div class="tab-pane fade" id="pills-package-yield" role="tabpanel"
+                    aria-labelledby="pills-package-yield">
+
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>Pitch</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="pitch_package" value="0" onchange="getPackageYield()" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="h-line">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>Layer</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="layer_package" value="0" onchange="getPackageYield()" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="h-line">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>Substrate Type</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="substrate_package" value="0" onchange="getPackageYield()" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="h-line">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>Body Size</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="bodysize_package" value="0" onchange="getPackageYield()" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="h-line">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>Tooling NRE</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="tooling_package" value="0" onchange="getPackageYield()" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="$" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="h-line">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>Design NRE</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="design_package" value="0" onchange="getPackageYield()" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="$" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="h-line">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>B/M Kit NRE</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="bm_package" value="0" onchange="getPackageYield()" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="$" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="h-line">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>Engg Hours</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="engg_package" value="0" onchange="getPackageYield()" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="h-line">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>Assembly Yield</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="assembly_package" value="0" onchange="getPackageYield()" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="%" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="h-line">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>Bake/ Pack</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="bake_package" value="0" onchange="getPackageYield()" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="$" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="h-line">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>Gold Adder</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="gold_package" value="0" onchange="getPackageYield()" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="$" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="h-line">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>First Yr Prod Price</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="first_package" value="0" onchange="getPackageYield()" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="$" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="h-line">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-1">
+                                <label for="formFileDisabled" class="form-label"><strong>Total</strong>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="number" id="total_package" value="0" readonly/>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mb-1">
+                                <input class="form-control" type="text" value="$" readonly/>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="h-line">
+                </div>
+                <!-- package yield end -->
+
+
+
+                <!-- test yield start -->
+                <div class="tab-pane fade" id="pills-test-yield" role="tabpanel" aria-labelledby="pills-test-yield">
+
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="mb-1">
+                                    <label for="formFile" class="form-label">Tester Type</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-1">
+                                    <select name="" id="tester_type" class="form-control minimal" onchange="getIndexTimeFinalCost(this.value)">
+                                        <option selected disabled>Select Tester Type</option>
+                                        <option value="0">None</option>
+                                        <option value="85">Credence DIO</option>
+                                        <option value="235">verigy PS800</option>
+                                        <option value="300">verigy PS800</option>
+                                        <option value="385">verigy PS800</option>
+                                        <option value="150">verigy 93K C400e</option>
+                                        <option value="160">verigy 93K C400e</option>
+                                        <option value="200">verigy 93K P600</option>
+                                        <option value="285">verigy 93K P600</option>
+                                        <option value="265">Verigy PS800+3600</option>
+                                        <option value="335">Verigy PS800+3600</option>
+                                        <option value="425">Verigy PS800+3600</option>
+                                        <option value="426">Verigy PS800+3600</option>
+                                        <option value="427">Verigy PS800+3600</option>
+                                        <option value="130">Teradyne catalyst</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="mb-1">
+                                    <!-- <input class="form-control" type="text" value="μm" readonly /> -->
+                                </div>
+                            </div>
+                            <br /><br />
+                        </div>
+                        <hr class="h-line" />
+                        
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="mb-1">
+                                    <label for="formFile" class="form-label">Value</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-1">
+                                    <input class="form-control" type="number" id="tested_value" value="" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="mb-1">
+                                    <input class="form-control" type="text" value="$" readonly />
+                                </div>
+                            </div>
+                            <br /><br />
+                        </div>
+                        <hr class="h-line" />
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="mb-1">
+                                    <label for="formFile" class="form-label">Index Time</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-1">
+                                    <input class="form-control" type="number" id="index_time" value="" readonly/>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="mb-1">
+                                    <input class="form-control" type="text" value="$" readonly />
+                                </div>
+                            </div>
+                            <br /><br />
+                        </div>
+                        <hr class="h-line" />
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="mb-1">
+                                    <label for="formFile" class="form-label">Final Test Cost</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-1">
+                                    <input class="form-control" type="number" id="final_test_cost" value="" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="mb-1">
+                                    <input class="form-control" type="text" value="$" readonly />
+                                </div>
+                            </div>
+                            <br /><br />
+                        </div>
+                        <hr class="h-line" />
+                        
+                    </div>
+                </div>
+                <!-- test yield end -->
+
+
+
+
+
+
+                <div class="tab-pane fade  show active" id="pills-yield" role="tabpanel" aria-labelledby="pills-yield">
+                    <div class="memory text">
+
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">Wafer Size (8" or 12")</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B4" value="" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                            </div>
+                            <hr class="h-line" />
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="mb-">
+                                        <label for="formFileMultiple" class="form-label">Die Size -X (excluding scribe
+                                            line) - Width from
+                                            Die Size Estimation
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B5" value="0" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">Die Size -Y (excluding scribe
+                                            line) - Height from
+                                            Die Size Estimation
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B6" value="0" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">Seal ring (μm) advanced technology
+                                            default=20μm
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B8" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileMultiple" class="form-label">Scribe Line X (μm) advanced
+                                            technology default=80μm
+                                            fixed
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B9"
+                                            onchange="convertMeasurement()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">Scribe Line Y (μm) advanced
+                                            technology default=80μm
+                                            or 160μm
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B10" onchange="convertYline()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">X effective length
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B11" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">Y effective length
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B12" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">Effective area without scribeline
+                                            (inch2)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B13" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileMultiple" class="form-label">Gross Die
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B14" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">N Factor
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B15" />
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">Non Redundant SRAM CELL AREA +
+                                            Analog%
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="TT" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="%" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">D0 forecast (without SRAM and
+                                            gross die is less
+                                            than 800)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="EE" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="%" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFile" class="form-label">Actual D0
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="GG" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileMultiple" class="form-label">Adjusted D0
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B19"
+                                            onchange="yieldCalculation()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileMultiple" class="form-label">Yield
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B20" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="%" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+
+
+
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">Good Die
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B21" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">Wafer Cost
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B22"
+                                            onchange="calculateDieCost()" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="$" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+
+
+
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">Gross Die
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B25" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">NDW
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B26" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="μm" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+
+
+                                <hr class="h-line" />
+                                <div class="col-md-7">
+                                    <div class="mb-1">
+                                        <label for="formFileDisabled" class="form-label">Die Cost
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="number" id="B23" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="mb-1">
+                                        <input class="form-control" type="text" value="$" readonly />
+                                    </div>
+                                </div>
+                                <br /><br />
+                                <hr class="h-line" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<script>
+
+    function getPackageYield() {
+
+        var a = parseFloat(document.getElementById("pitch_package").value);
+        var b = parseFloat(document.getElementById("layer_package").value);
+        var c = parseFloat(document.getElementById("substrate_package").value);
+        var d = parseFloat(document.getElementById("bodysize_package").value);
+        var e = parseFloat(document.getElementById("tooling_package").value);
+        var f = parseFloat(document.getElementById("design_package").value);
+        var g = parseFloat(document.getElementById("bm_package").value);
+        var h = parseFloat(document.getElementById("engg_package").value);
+        var i = parseFloat(document.getElementById("assembly_package").value);
+        var j = parseFloat(document.getElementById("bake_package").value);
+        var k = parseFloat(document.getElementById("first_package").value);
+
+
+        const total = a+b+c+d+e+f+g+h+i+j+k;
+        document.getElementById("total_package").value = total;
+    }
+
+
+    function getIndexTimeFinalCost(v) {
+        
+
+        var testerType = Number(v);
+
+        var selectElement = document.getElementById("tester_type");
+        var selectedOptionText = selectElement.options[selectElement.selectedIndex].text;
+        // console.log(testerType);
+
+
+
+        var newArray = [
+                { "id": 0, "name": "None", "value": 0 },
+                { "id": 85, "name": "Credence DIO", "value": 1.50 },
+                { "id": 235, "name": "verigy PS800", "value": 1.50 },
+                { "id": 300, "name": "verigy PS800", "value": 1.50 },
+                { "id": 385, "name": "verigy PS800", "value": 1.50 },
+                { "id": 150, "name": "verigy 93K C400e", "value": 1.50 },
+                { "id": 160, "name": "verigy 93K C400e", "value": 1.50 },
+                { "id": 200, "name": "verigy 93K P600", "value": 1.50 },
+                { "id": 285, "name": "verigy 93K P600", "value": 1.50 },
+                { "id": 265, "name": "Verigy PS800+3600", "value": 1.50 },
+                { "id": 335, "name": "Verigy PS800+3600", "value": 1.50 },
+                { "id": 425, "name": "Verigy PS800+3600", "value": 1.50 },
+                { "id": 426, "name": "Verigy PS800+3600", "value": 4.24 },
+                { "id": 427, "name": "Verigy PS800+3600", "value": 4.24 },
+                { "id": 130, "name": "Teradyne catalyst", "value": 1.50 }
+            ];
+
+            var matchingObject = newArray.find(item => item.id === testerType);
+            var indexTime = matchingObject.value
+            // console.log(indexTime);
+            
+            
+        document.getElementById("index_time").value = indexTime;
+        document.getElementById("tested_value").value = testerType;
+        
+        var finalTestCost = testerType + indexTime;
+        document.getElementById("final_test_cost").value = finalTestCost;
+        
+    }
+
+
+
+
+    var technology1 = [
+        { "id": 1, "name": "N180", "value": 1.44 },
+        { "id": 2, "name": "N90", "value": 0.48 },
+        { "id": 3, "name": "N65", "value": 0.25 },
+        { "id": 4, "name": "N55", "value": 0.16 },
+        { "id": 5, "name": "N40", "value": 0.08 },
+        { "id": 6, "name": "N28", "value": 1.098 },
+        { "id": 7, "name": "N22", "value": 0.02 },
+        { "id": 8, "name": "N16", "value": 0.01 },
+        { "id": 9, "name": "N12", "value": 0.006 },
+        { "id": 10, "name": "N10", "value": 0.004 },
+        { "id": 11, "name": "N7", "value": 0.0025 },
+        { "id": 12, "name": "N5", "value": 0.001 },
+        { "id": 13, "name": "N4", "value": 0.0005 },
+        { "id": 14, "name": "N3", "value": 0.0002 }
+    ];
+
+    var dropdown = document.getElementById("gate_tech");
+
+    technology1.forEach(function (option) {
+        var optionElement = document.createElement("option");
+        optionElement.value = option.value;
+        optionElement.textContent = option.name;
+        dropdown.appendChild(optionElement);
+    });
+
+
+
+    var so_gate_tech = document.getElementById("so_gate_tech");
+
+    technology1.forEach(function (option) {
+        var optionElement = document.createElement("option");
+        optionElement.value = option.value;
+        optionElement.textContent = option.name;
+        so_gate_tech.appendChild(optionElement);
+    });
+
+    var technology2 = [
+        { "id": 1, "name": "N180", "value": 5000 },
+        { "id": 2, "name": "N90", "value": 2275 },
+        { "id": 3, "name": "N65", "value": 1250 },
+        { "id": 4, "name": "N55", "value": 1000 },
+        { "id": 5, "name": "N40", "value": 1100 },
+        { "id": 6, "name": "N28", "value": 500 },
+        { "id": 7, "name": "N22", "value": 300 },
+        { "id": 8, "name": "N16", "value": 112.5 },
+        { "id": 9, "name": "N12", "value": 110 },
+        { "id": 10, "name": "N10", "value": 50 },
+        { "id": 11, "name": "N7", "value": 24.5 },
+        { "id": 12, "name": "N5", "value": 12.5 },
+        { "id": 13, "name": "N4", "value": 8 },
+        { "id": 14, "name": "N3", "value": 4.5 }
+    ];
+
+    var dropdown = document.getElementById("io_gate_tech");
+
+    technology2.forEach(function (option) {
+        var optionElement = document.createElement("option");
+        optionElement.value = option.value;
+        optionElement.textContent = option.name;
+        dropdown.appendChild(optionElement);
+    });
+
+
+
+
+
+    function calculate() {
+        var D = parseFloat(document.getElementById("D").value);
+        var H = parseFloat(document.getElementById("H").value);
+        var V = parseFloat(document.getElementById("V").value);
+        var G = parseFloat(document.getElementById("G").value);
+        var I = parseFloat(document.getElementById("I").value);
+        var M = parseFloat(document.getElementById("M").value);
+        var U = parseFloat(document.getElementById("U").value);
+        var T = parseFloat(document.getElementById("T").value);
+        var E = parseFloat(document.getElementById("E").value);
+
+        // Check if any of the values is NaN (Not a Number)
+        if (
+            isNaN(D) ||
+            isNaN(H) ||
+            isNaN(V) ||
+            isNaN(G) ||
+            isNaN(I) ||
+            isNaN(M) ||
+            isNaN(U) ||
+            isNaN(T) ||
+            isNaN(E)
+        ) {
+            console.log("Please enter valid numerical values in all fields.");
+            return;
+        }
+
+        const result = ((G + T + E) / D + I + M) / U;
+        // const result =  ([(G + T + E) / D] + I + M) / U;
+
+        document.getElementById("result").value = " " + result;
+        document.getElementById("result").style.display = "block";
+    }
+
+    function calculateMemory() {
+        var DD = parseFloat(document.getElementById("DD").value);
+        var HH = parseFloat(document.getElementById("HH").value);
+        var VV = parseFloat(document.getElementById("VV").value);
+        var GG = parseFloat(document.getElementById("GG").value);
+        var II = parseFloat(document.getElementById("II").value);
+        var MM = parseFloat(document.getElementById("MM").value);
+        var TT = parseFloat(document.getElementById("TT").value);
+        var EE = parseFloat(document.getElementById("EE").value);
+
+        // Check if any of the values is NaN (Not a Number)
+        if (
+            isNaN(DD) ||
+            isNaN(HH) ||
+            isNaN(VV) ||
+            isNaN(GG) ||
+            isNaN(II) ||
+            isNaN(MM) ||
+            isNaN(TT) ||
+            isNaN(EE)
+        ) {
+            console.log("Please enter valid numerical values in all fields.");
+            return;
+        }
+
+        const result = ((GG + TT + EE) / DD + II + MM);
+        // const result =  ([(G + T + E) / D] + I + M) / U;
+
+        document.getElementById("die_memory").value = result;
+        document.getElementById("memoryResult").value = " " + result;
+        document.getElementById("memoryResult").style.display = "block";
+    }
+
+    function gateDensitySum() {
+        var G1 = parseFloat(document.getElementById("G1").value);
+        var G2 = parseFloat(document.getElementById("G2").value);
+
+        const result = G1 + G2;
+        document.getElementById("gateDensityResult").value = result;
+    }
+
+    function gateIOArea() {
+        var FPin = parseFloat(document.getElementById("FPin").value);
+        var PPin = parseFloat(document.getElementById("PPin").value);
+
+        const result = FPin + PPin;
+        document.getElementById("IOArea").value = result;
+    }
+
+    function gateLinearPad() {
+        var LA = parseFloat(document.getElementById("LA").value);
+        var LB = parseFloat(document.getElementById("LB").value);
+        var LC = parseFloat(document.getElementById("LC").value);
+
+        const result = LA + LB + LC;
+        document.getElementById("LinearPP").value = result;
+    }
+
+    function gateDieSize() {
+        var DA = parseFloat(document.getElementById("DieA").value);
+        var DB = parseFloat(document.getElementById("DieB").value);
+        var DC = parseFloat(document.getElementById("DieC").value);
+        var DD = parseFloat(document.getElementById("DieD").value);
+        var DE = parseFloat(document.getElementById("DieE").value);
+
+        const result = DA + DB + DC + DD + DE;
+        document.getElementById("DieSize").value = result;
+    }
+
+
+
+    function getWafer1() {
+        var d = parseFloat(document.getElementById("diameter1").value);
+        var dpw = parseFloat(document.getElementById("noofdies1").value);
+        const radius = d / 2;
+
+        const area = 3.14 * radius * radius;
+
+        const A1 = area / dpw;
+        const area_of_one_die = parseFloat(A1.toFixed(2));
+        const defectperarea = area_of_one_die / 100;
+        const dpa = parseFloat(defectperarea.toFixed(2));
+
+        // const Yield = 1/(1+dpa*area_of_one_die/2)*(1+dpa*area_of_one_die/2);
+        const exp = 1 + (dpa * area_of_one_die) / 2;
+        // const Yield = 1 / Math.pow(exp, 2);
+        const Yield = 1 / exp;
+        const actualYield = parseFloat(Yield.toFixed(4));
+
+        document.getElementById("wafer1Result").value = actualYield;
+        // console.log(actualYield);
+    }
+
+    function getWafer2() {
+        var d = parseFloat(document.getElementById("diameter2").value);
+        var dpw = parseFloat(document.getElementById("noofdies2").value);
+        const radius = d / 2;
+
+        const area = 3.14 * radius * radius;
+
+        const A1 = area / dpw;
+        const area_of_one_die = parseFloat(A1.toFixed(2));
+        const defectperarea = area_of_one_die / 100;
+        const dpa = parseFloat(defectperarea.toFixed(2));
+
+        // const Yield = 1/(1+dpa*area_of_one_die/2)*(1+dpa*area_of_one_die/2);
+        const exp = 1 + (dpa * area_of_one_die) / 2;
+        // const Yield = 1 / Math.pow(exp, 2);
+        const Yield = 1 / exp;
+        const actualYield = parseFloat(Yield.toFixed(4));
+
+        document.getElementById("wafer2Result").value = actualYield;
+        // console.log(actualYield);
+    }
+
+    function WaferSum() {
+        var w1 = parseFloat(document.getElementById("wafer1Result").value);
+        var w2 = parseFloat(document.getElementById("wafer2Result").value);
+
+        const total = w1 + w2;
+        const totalSum = parseFloat(total.toFixed(5));
+        document.getElementById("waferSum").innerHTML = totalSum;
+    }
+
+    function gateArea() {
+
+
+        function formatNumber(num) {
+            return Number.isInteger(num) ? num : num.toFixed(2);
+        }
+
+        var g1 = parseFloat(document.getElementById("gate_count").value);
+        var g2 = parseFloat(document.getElementById("gate_overhead").value);
+        var g3 = parseFloat(document.getElementById("gate_tech").value);
+        var g4 = parseFloat(document.getElementById("target_u").value);
+        var g5 = parseFloat(document.getElementById("gate_count_area").value);
+        var g6 = parseFloat(document.getElementById("gate_overhead_area").value);
+        var u1 = parseFloat(document.getElementById("gcUnit").value);
+        var u2 = parseFloat(document.getElementById("goUnit").value);
+        var u3 = parseFloat(document.getElementById("tuUnit").value);
+
+        document.getElementById("so_gate_tech").value = g3;
+        document.getElementById("so_target_u").value = g4;
+
+        var dropdown = document.getElementById("gate_tech");
+        var selectedOption = dropdown.options[dropdown.selectedIndex];
+        var techName = selectedOption.textContent;
+        findValueByName(techName);
+
+
+        // Check if all input fields are zero or NaN
+        if ((g1 === 0 || isNaN(g1)) && (g2 === 0 || isNaN(g2)) && (g5 === 0 || isNaN(g5)) && (g6 === 0 || isNaN(g6))) {
+
+            if (!isNaN(g4) && g4 !== 0) {
+                getLogicArea()
+            } else {
+                document.getElementById("gate_count").disabled = false;
+                document.getElementById("gate_overhead").disabled = false;
+                document.getElementById("gate_count_area").disabled = false;
+                document.getElementById("gate_overhead_area").disabled = false;
+                document.getElementById("gate_tech").disabled = false;
+                document.getElementById("gate_area").value = '';
+                document.getElementById("area_for_placeblearea").value = '';
+                return; // Exit the function early since we have no valid input
+            }
+
+        }
+
+
+
+        if (!isNaN(g5) && g5 !== 0 || !isNaN(g6) && g6 !== 0) {
+
+            document.getElementById("gate_count").disabled = true;
+            document.getElementById("gate_overhead").disabled = true;
+            document.getElementById("gate_count_area").disabled = false;
+            document.getElementById("gate_overhead_area").disabled = false;
+            // document.getElementById("logic_target1").disabled = true;
+            document.getElementById("area_for_placeblearea").disabled = true;
+            var g55 = g5 * u1;
+            var g66 = g6 * u2;
+            const result = ((g55 + g66) / g4) * 100;
+            document.getElementById("gate_area").value = formatNumber(result);
+            const logic_area = (result * g4) / 100;
+            // console.log(logic_area);
+            document.getElementById("area_for_placeblearea").value = formatNumber(logic_area);
+        }
+
+
+        if (!isNaN(g1) && g1 !== 0 || !isNaN(g2) && g2 !== 0) {
+
+
+            document.getElementById("gate_count_area").disabled = true;
+            document.getElementById("gate_overhead_area").disabled = true;
+            document.getElementById("gate_count").disabled = false;
+            document.getElementById("gate_overhead").disabled = false;
+            // document.getElementById("logic_target1").disabled = true;
+            document.getElementById("area_for_placeblearea").disabled = true;
+            var g11 = g1;
+            var g22 = g2;
+            const f1 = (g11 + g22) / 4;
+            const f2 = f1 * g3;
+            var g44 = g4 / 100;
+            const gateArea = f2 / g44;
+            document.getElementById("gate_area").value = formatNumber(gateArea);
+
+            const logic_area = (gateArea * g4) / 100;
+            // console.log(logic_area);
+            document.getElementById("area_for_placeblearea").value = formatNumber(logic_area);
+        }
+        calculateArea()
+        floorPlanArea()
+        softArea()
+
+
+    }
+
+
+    function findValueByName(name) {
+        for (var i = 0; i < technology2.length; i++) {
+            if (technology2[i].name === name) {
+                var tech2value = technology2[i].value;
+                document.getElementById("io_gate_tech").value = tech2value;
+            }
+        }
+    }
+
+
+
+    function softArea() {
+
+        function formatNumber(num) {
+            return Number.isInteger(num) ? num : num.toFixed(2);
+        }
+        var g1 = parseFloat(document.getElementById("so_gate_count").value);
+        var g2 = parseFloat(document.getElementById("so_gate_overhead").value);
+
+        var g3 = parseFloat(document.getElementById("so_gate_tech").value);
+        var g4 = parseFloat(document.getElementById("so_target_u").value);
+
+        var g5 = parseFloat(document.getElementById("so_gate_count_area").value);
+        var g6 = parseFloat(document.getElementById("so_gate_overhead_area").value);
+
+        var u1 = parseFloat(document.getElementById("so_gcUnit").value);
+        var u2 = parseFloat(document.getElementById("so_goUnit").value);
+        var u3 = parseFloat(document.getElementById("so_tuUnit").value);
+
+
+        if ((g4 === 0 || isNaN(g4))) {
+            console.log('loaded => ' + g4);
+            document.getElementById("area_for_softip").disabled = true;
+        } else {
+            console.log('loaded2 => ' + g4);
+            document.getElementById("area_for_softip").disabled = false;
+        }
+
+        // Check if all input fields are zero or NaN
+        if ((g1 === 0 || isNaN(g1)) && (g2 === 0 || isNaN(g2)) && (g5 === 0 || isNaN(g5)) && (g6 === 0 || isNaN(g6))) {
+            document.getElementById("so_gate_count").disabled = false;
+            document.getElementById("so_gate_overhead").disabled = false;
+            document.getElementById("so_gate_count_area").disabled = false;
+            document.getElementById("so_gate_overhead_area").disabled = false;
+            // document.getElementById("area_for_softip").disabled = false;
+            document.getElementById("soft_area").value = '';
+            document.getElementById("area_for_softip").value = '';
+            return; // Exit the function early since we have no valid input
+        }
+
+
+
+        if (!isNaN(g5) && g5 !== 0 || !isNaN(g6) && g6 !== 0) {
+
+            document.getElementById("so_gate_count").disabled = true;
+            document.getElementById("so_gate_overhead").disabled = true;
+            document.getElementById("area_for_softip").disabled = true;
+            document.getElementById("so_gate_count_area").disabled = false;
+            document.getElementById("so_gate_overhead_area").disabled = false;
+            var g55 = g5 * u1;
+            var g66 = g6 * u2;
+            const result = ((g55 + g66) / g4) * 100;
+            document.getElementById("soft_area").value = formatNumber(result);
+
+            const logic_area = (result * g4) / 100;
+            // console.log(logic_area);
+            document.getElementById("area_for_softip").value = formatNumber(logic_area);
+        }
+
+
+        if (!isNaN(g1) && g1 !== 0 || !isNaN(g2) && g2 !== 0) {
+
+
+            document.getElementById("so_gate_count_area").disabled = true;
+            document.getElementById("so_gate_overhead_area").disabled = true;
+            document.getElementById("area_for_softip").disabled = true;
+            document.getElementById("so_gate_count").disabled = false;
+            document.getElementById("so_gate_overhead").disabled = false;
+            var g11 = g1;
+            var g22 = g2;
+            const f1 = (g11 + g22) / 4;
+            const f2 = f1 * g3;
+            var g44 = g4 / 100;
+            const gateArea = f2 / g44;
+            document.getElementById("soft_area").value = formatNumber(gateArea);
+
+            const logic_area = (gateArea * g4) / 100;
+            // console.log(logic_area);
+            document.getElementById("area_for_softip").value = formatNumber(logic_area);
+        }
+
+
+
+        // var g11 = g1 * u1;
+        // var g22 = g2 * u2;
+        // const f1 = (g11 + g22) / 4;
+        // const f2 = f1 * g3;
+        // var g44 = g4 / 100;
+        // const softArea = f2 / g44;
+        // document.getElementById("soft_area").value = softArea;
+
+        calculateArea()
+        floorPlanArea()
+    }
+
+
+    function softIP() {
+        var A1 = parseFloat(document.getElementById("sip_gate_count").value);
+        var A2 = parseFloat(document.getElementById("sip_effective_gate").value);
+        var A3 = parseFloat(document.getElementById("sip_total_gate_area").value);
+        var A4 = parseFloat(document.getElementById("sip_total_gipm").value);
+        var A5 = parseFloat(document.getElementById("sip_floor_overhead").value);
+        var A6 = parseFloat(document.getElementById("sip_core_area").value);
+        var A7 = parseFloat(document.getElementById("sip_size_on_side").value);
+        var A8 = parseFloat(document.getElementById("sip_side_power_ring").value);
+
+        var u1 = parseFloat(document.getElementById("sipgcUnit").value);
+        var u2 = parseFloat(document.getElementById("sipegUnit").value);
+        var u3 = parseFloat(document.getElementById("siptgaUnit").value);
+        var u4 = parseFloat(document.getElementById("siptgUnit").value);
+        var u5 = parseFloat(document.getElementById("sipfoUnit").value);
+        var u6 = parseFloat(document.getElementById("sipcaUnit").value);
+        var u7 = parseFloat(document.getElementById("sipsosUnit").value);
+        var u8 = parseFloat(document.getElementById("sipsprUnit").value);
+
+        const result = A1 * u1 + A2 * u2 + A3 * u3 + A4 * u4 + A5 * u5 + A6 * u6 + A7 * u7 + A8 * u8;
+        document.getElementById("soft_ip").value = result;
+        calculateArea()
+        floorPlanArea()
+    }
+    function hardIP() {
+        var A1 = parseFloat(document.getElementById("hip_non_anolog_area").value);
+        var A2 = parseFloat(document.getElementById("hip_anolog_area").value);
+
+        var u1 = parseFloat(document.getElementById("hipnaaUnit").value);
+        var u2 = parseFloat(document.getElementById("hipaaUnit").value);
+
+        const result = A1 * u1 + A2 * u2;
+        document.getElementById("hard_ip").value = result;
+        calculateArea()
+        floorPlanArea()
+    }
+
+    function FPins() {
+        var A1 = parseFloat(document.getElementById("ios_fpins").value);
+        var A2 = A1 / 4;
+        var A22 = Math.ceil(A2);
+        var A3 = parseFloat(document.getElementById("io_gate_tech").value);
+
+        document.getElementById("ios_ppins").value = A22;
+
+        const result = (A1 + A22) * A3;
+
+        document.getElementById("ios").value = result;
+        calculateArea()
+        floorPlanArea()
+    }
+
+
+    function LPP() {
+        var A1 = parseFloat(document.getElementById("lpp_core_pad").value);
+        var A2 = parseFloat(document.getElementById("lpp_linear_pad").value);
+        var A3 = parseFloat(document.getElementById("lpp_final_side").value);
+
+        var u1 = parseFloat(document.getElementById("lppcpUnit").value);
+        var u2 = parseFloat(document.getElementById("lpplpUnit").value);
+        var u3 = parseFloat(document.getElementById("lppfsUnit").value);
+
+
+        const result = A1 * u1 + A2 * u2 + A3 * u3;
+        document.getElementById("linear_pad").value = result;
+    }
+    function SPP() {
+        var A1 = parseFloat(document.getElementById("spl_core_pad").value);
+        var A2 = parseFloat(document.getElementById("spl_periphery_pad").value);
+        var A3 = parseFloat(document.getElementById("spl_final_pad").value);
+
+        var u1 = parseFloat(document.getElementById("splcpUnit").value);
+        var u2 = parseFloat(document.getElementById("splppUnit").value);
+        var u3 = parseFloat(document.getElementById("splfpUnit").value);
+
+
+        const result = A1 * u1 + A2 * u2 + A3 * u3;
+        document.getElementById("spl").value = result;
+    }
+
+
+
+
+    function GateCount(v) {
+        alert(v);
+    }
+
+    function convertMeasurement() {
+
+        var B5 = parseFloat(document.getElementById("B5").value);
+        var B8 = parseFloat(document.getElementById("B8").value);
+        var B9 = parseFloat(document.getElementById("B9").value);
+        var result;
+        if (B5 > 40) {
+            result = (B5 / 39.37 + B8 * 2 / 1000000 + B9 / 1000000);
+        } else if (B5 < 0.9) {
+            result = (B5 * 25.4 + B8 * 2 / 1000000 + B9 / 1000000);
+        } else {
+            result = (B5 + B8 * 2 / 1000000 + B9 / 1000000);
+        }
+        // return result;
+        // B11
+        document.getElementById("B11").value = result;
+        // console.log(result);
+    }
+
+    function convertYline() {
+
+        var B6 = parseFloat(document.getElementById("B6").value);
+        var B8 = parseFloat(document.getElementById("B8").value);
+        var B10 = parseFloat(document.getElementById("B10").value);
+        var result;
+        if (B6 > 40) {
+            result = (B6 / 39.37 + B8 * 2 / 1000000 + B10 / 1000000);
+        } else {
+            if (B6 < 0.9) {
+                result = (B6 * 25.4 + B8 * 2 / 1000000 + B10 / 1000000);
+            } else {
+                result = (B6 + B8 * 2 / 1000000 + B10 / 1000000);
+            }
+        }
+
+        document.getElementById("B12").value = result;
+
+        EffectiveAreaWithoutScribeline(result)
+    }
+
+
+    function EffectiveAreaWithoutScribeline(v) {
+        var B9 = parseFloat(document.getElementById("B9").value);
+        var B10 = parseFloat(document.getElementById("B10").value);
+        var B11 = parseFloat(document.getElementById("B11").value);
+        var B12 = v;
+
+        const result = (B11 - (B9 / 1000000)) * (B12 - (B10 / 1000000)) / 25.4 / 25.4;
+
+        document.getElementById("B13").value = result;
+        grossDie()
+    }
+
+    function grossDie() {
+
+        var B4 = parseFloat(document.getElementById("B4").value);
+        var B11 = parseFloat(document.getElementById("B11").value);
+        var B12 = parseFloat(document.getElementById("B12").value);
+        var result;
+        var temp = (3.14 * (((B4 * 24.8 / 2) - 5) - (0.24 * (B11 + B12))) ** 2) / (B11 * B12);
+
+        if (temp >= 0) {
+            result = Math.floor(temp * 10) / 10; // Round to 1 decimal place
+        } else {
+            result = 0; // Or any other value you wish to assign when the condition is not met
+        }
+
+        // return result;
+        // console.log(result)
+
+        //return result;
+        document.getElementById("B14").value = result;
+        document.getElementById("B25").value = result;
+    }
+
+
+
+    function yieldCalculation() {
+
+        var B13 = parseFloat(document.getElementById("B13").value);
+        var B19 = parseFloat(document.getElementById("B19").value);
+        var B15 = parseFloat(document.getElementById("B15").value);
+        var result;
+        var temp = 1 / (1 + (B13 * B19));
+        result = Math.pow(temp, B15) * 100;
+
+
+        //return result;
+        document.getElementById("B20").value = result;
+        goodDie(result)
+    }
+
+    function goodDie(v) {
+        var B14 = parseFloat(document.getElementById("B14").value);
+        var B20 = v;
+        var result;
+        result = Math.floor(B14 * B20 * 10) / 10; // Round down to 1 decimal place
+        const res = result / 100
+        document.getElementById("B21").value = res;
+        document.getElementById("B26").value = res;
+
+
+    }
+
+    function calculateDieCost() {
+        var B21 = parseFloat(document.getElementById("B21").value);
+        var B22 = parseFloat(document.getElementById("B22").value);
+
+        const result = B22 / B21;
+        console.log(B21);
+        console.log(B22);
+        console.log('result => ' + result);
+        document.getElementById("B23").value = result;
+    }
+
+    function floorPlanArea() {
+        var a1 = parseFloat(document.getElementById("gate_area").value);
+        var a2 = parseFloat(document.getElementById("die_memory").value);
+        var a3 = parseFloat(document.getElementById("soft_area").value);
+        var a4 = parseFloat(document.getElementById("anolog_ram_area").value);
+        var a5 = parseFloat(document.getElementById("ios").value);
+        var a6 = parseFloat(document.getElementById("floor_planArea").value);
+
+        const result = (a1 + a2 + a3 + a4 + a5) * a6 / 100;
+
+        document.getElementById("floorPlanArea").value = result;
+        calculateArea()
+    }
+
+
+    // aspect ratio
+
+    function calculateArea() {
+        var a1 = parseFloat(document.getElementById("gate_area").value);
+        var a2 = parseFloat(document.getElementById("die_memory").value);
+        var a3 = parseFloat(document.getElementById("soft_area").value);
+        var a4 = parseFloat(document.getElementById("anolog_ram_area").value);
+        var a5 = parseFloat(document.getElementById("ios").value);
+        var a6 = parseFloat(document.getElementById("floorPlanArea").value);
+
+        const result = a1 + a2 + a3 + a4 + a5 + a6;
+
+        console.log(result);
+        document.getElementById("ar_area").value = result;
+        floorPlanArea()
+
+    }
+
+    function calculateHeightWidth() {
+        var area = parseFloat(document.getElementById("ar_area").value);
+        var x = parseFloat(document.getElementById("ar_x").value);
+
+        const c1 = area / x
+        const height = Math.sqrt(c1)
+        const width = x * height
+
+        document.getElementById("ar_width").value = width;
+        document.getElementById("ar_height").value = height;
+
+        document.getElementById("B5").value = width;
+        document.getElementById("B6").value = height;
+        aspectRatio()
+    }
+
+
+    function aspectRatio() {
+        var width = parseFloat(document.getElementById("ar_width").value);
+        var height = parseFloat(document.getElementById("ar_height").value);
+
+        const result = 2 * (width * height)
+
+        document.getElementById("aspectRatio").value = result;
+    }
+
+
+    function TotalDieSum() {
+        var A1 = parseFloat(document.getElementById("gate_area").value);
+        var A2 = parseFloat(document.getElementById("die_memory").value);
+        var A3 = parseFloat(document.getElementById("soft_area").value);
+        var A4 = parseFloat(document.getElementById("anolog_ram_area").value);
+        var A5 = parseFloat(document.getElementById("ios").value);
+        var A6 = parseFloat(document.getElementById("floorPlanArea").value);
+        var A7 = parseFloat(document.getElementById("aspectRatio").value);
+
+
+        const result = A1 + A2 + A3 + A4 + A5 + A6 + A7;
+        document.getElementById("dieSizeEstimation").value = result;
+
+
+    }
+
+    function getLogicArea() {
+        function formatNumber(num) {
+            return Number.isInteger(num) ? num : num.toFixed(2);
+        }
+        var target1 = parseFloat(document.getElementById("target_u").value);
+        // document.getElementById("target_u").value = target1;
+        document.getElementById("so_target_u").value = target1;
+
+
+        var logic_area = parseFloat(document.getElementById("area_for_placeblearea").value);
+
+        if ((!isNaN(logic_area) && logic_area !== 0)) {
+
+            document.getElementById("gate_count").disabled = true;
+            document.getElementById("gate_overhead").disabled = true;
+            document.getElementById("gate_count_area").disabled = true;
+            document.getElementById("gate_overhead_area").disabled = true;
+            // document.getElementById("gate_tech").disabled = true;
+            document.getElementById("gcUnit").disabled = true;
+            document.getElementById("goUnit").disabled = true;
+            const result = (logic_area / target1) * 100;
+            // console.log(result);
+            document.getElementById("gate_area").value = formatNumber(result);
+
+        } else {
+            document.getElementById("gate_count").disabled = false;
+            document.getElementById("gate_overhead").disabled = false;
+            document.getElementById("gate_count_area").disabled = false;
+            document.getElementById("gate_overhead_area").disabled = false;
+            document.getElementById("gate_tech").disabled = false;
+            document.getElementById("gcUnit").disabled = false;
+            document.getElementById("goUnit").disabled = false;
+            document.getElementById("area_for_placeblearea").disabled = false;
+        }
+
+    }
+
+    function getsoftIPLogicArea() {
+        function formatNumber(num) {
+            return Number.isInteger(num) ? num : num.toFixed(2);
+        }
+        var target1 = parseFloat(document.getElementById("so_target_u").value);
+
+        var logic_area = parseFloat(document.getElementById("area_for_softip").value);
+
+        if (!isNaN(logic_area) && logic_area !== 0) {
+
+            document.getElementById("so_gate_count").disabled = true;
+            document.getElementById("so_gate_overhead").disabled = true;
+            document.getElementById("so_gate_count_area").disabled = true;
+            document.getElementById("so_gate_overhead_area").disabled = true;
+            document.getElementById("gate_tech").disabled = true;
+            document.getElementById("so_gcUnit").disabled = true;
+            document.getElementById("so_goUnit").disabled = true;
+
+        } else {
+            document.getElementById("so_gate_count").disabled = false;
+            document.getElementById("so_gate_overhead").disabled = false;
+            document.getElementById("so_gate_count_area").disabled = false;
+            document.getElementById("so_gate_overhead_area").disabled = false;
+            document.getElementById("so_gcUnit").disabled = false;
+            document.getElementById("so_goUnit").disabled = false;
+        }
+        const result = (logic_area / target1) * 100;
+        console.log(result);
+        document.getElementById("soft_area").value = formatNumber(result);
+    }
+</script>
+<script>
+    window.onload = function () {
+        // document.getElementById("area_for_softip").disabled = true;
+        // document.getElementById("area_for_placeblearea").disabled = true;
+    }
+    window.onscroll = function () { myFunction() };
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+
+</script>
+
+
+<!-- <a class="twitter-timeline" href="https://twitter.com/TwitterDev" data-width="300" data-height="300">
+  Tweets by @TwitterDev
+</a> -->

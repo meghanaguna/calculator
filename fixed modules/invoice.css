@@ -1,0 +1,12 @@
+.input-group-text {
+    width: 85px;
+ } 
+ .robo{
+    display: none;
+ }
+ .robo_name{
+   border: none;
+ }
+ .robo_name:focus{
+   border: none;
+ }
