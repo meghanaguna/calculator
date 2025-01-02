@@ -16,8 +16,12 @@ connection.connect((err) => {
     return;
   }
   console.log('Connected to the database!');
+develop
 
   
+
+  console.log('testtttt....');
+test
 });
 
 module.exports = connection;
