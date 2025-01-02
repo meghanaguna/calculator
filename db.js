@@ -16,6 +16,7 @@ connection.connect((err) => {
     return;
   }
   console.log('Connected to the database!');
+  console.log('Yahooooo........');
 });
 
 
